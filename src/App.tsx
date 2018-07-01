@@ -1,9 +1,10 @@
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 import Category from './components/Category';
+import CategoryMenu from './components/CategoryMenu';
 import { CategoryStore } from './stores/CategoryStore';
 
 class App extends React.Component<{ categoryStore?: CategoryStore }> {
@@ -21,13 +22,7 @@ class App extends React.Component<{ categoryStore?: CategoryStore }> {
       this.props.categoryStore && (
         <Router>
           <div>
-            <ul>
-              {this.props.categoryStore.activeCategories.map(c => (
-                <li key={c.id}>
-                  <NavLink to={`/${c.id}`}>{c.title}</NavLink>
-                </li>
-              ))}
-            </ul>
+            <CategoryMenu />
 
             <Route path="/:categoryId" component={Category} />
           </div>

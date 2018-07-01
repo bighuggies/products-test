@@ -20,24 +20,16 @@ class Category extends React.Component<
   }
 
   public componentDidUpdate() {
-    this.props.categoryStore.currentCategoryId = this.props.match.params.categoryId;
+    this.props.categoryStore.selectCategory(this.props.match.params.categoryId);
   }
 
   public render() {
     return (
-      <div>
-        <h2>
-          {this.props.categoryStore.currentCategory
-            ? this.props.categoryStore.currentCategory.title
-            : 'Unkown category'}
-        </h2>
-
-        <ul>
-          {this.props.productStore.categoryProducts.map(p => (
-            <li> {p.title} </li>
-          ))}
-        </ul>
-      </div>
+      <ul>
+        {this.props.productStore.categoryProducts.map(p => (
+          <li key={p.id}> {p.title} </li>
+        ))}
+      </ul>
     );
   }
 }

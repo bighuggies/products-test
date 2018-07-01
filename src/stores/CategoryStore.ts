@@ -24,6 +24,10 @@ export class CategoryStore {
     this.categories = categories;
   };
 
+  public selectCategory = (categoryId: string) => {
+    this.currentCategoryId = categoryId;
+  };
+
   public get activeCategories() {
     return this.categories.filter(c => !c.hidden);
   }
@@ -38,5 +42,6 @@ decorate(CategoryStore, {
   categories: observable,
   currentCategory: computed,
   currentCategoryId: observable,
+  selectCategory: action,
   setCategories: action
 });

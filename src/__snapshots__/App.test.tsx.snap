@@ -1,16 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-"<inject-App-with-categoryStore categoryStore={{...}}>
-  <App categoryStore={{...}}>
-    <BrowserRouter>
-      <Router history={{...}}>
-        <div>
-          <ul />
-          <Route path=\\"/:categoryId\\" component={[Function: Injector]} />
-        </div>
-      </Router>
-    </BrowserRouter>
-  </App>
-</inject-App-with-categoryStore>"
+"<Provider categoryStore={{...}} productStore={{...}}>
+  <inject-App-with-categoryStore>
+    <App categoryStore={{...}}>
+      <BrowserRouter>
+        <Router history={{...}}>
+          <div>
+            <inject-withRouter(CategoryMenu)-with-categoryStore>
+              <withRouter(CategoryMenu) categoryStore={{...}}>
+                <Route>
+                  <CategoryMenu categoryStore={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
+                    <styled.ul>
+                      <ul className=\\"sc-bdVaJa hCdHre\\" />
+                    </styled.ul>
+                  </CategoryMenu>
+                </Route>
+              </withRouter(CategoryMenu)>
+            </inject-withRouter(CategoryMenu)-with-categoryStore>
+            <Route path=\\"/:categoryId\\" component={[Function: Injector]} />
+          </div>
+        </Router>
+      </BrowserRouter>
+    </App>
+  </inject-App-with-categoryStore>
+</Provider>"
 `;
