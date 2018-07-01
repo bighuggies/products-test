@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 
 import './App.css';
 import Category from './components/Category';
@@ -18,26 +18,23 @@ class App extends React.Component<{ categoryStore?: CategoryStore }> {
 
   public render() {
     return (
-      <Router>
-        {this.props.categoryStore ? (
+      this.props.categoryStore && (
+        <Router>
           <div>
             <ul>
               {this.props.categoryStore.activeCategories.map(c => (
                 <li key={c.id}>
-                  {' '}
-                  <Link to={`/${c.id}`}>{c.title}</Link>{' '}
+                  <NavLink to={`/${c.id}`}>{c.title}</NavLink>
                 </li>
               ))}
             </ul>
 
             <Route path="/:categoryId" component={Category} />
           </div>
-        ) : (
-          <p>Loading</p>
-        )}
-      </Router>
+        </Router>
+      )
     );
   }
 }
 
-export default inject('categoryStore')(observer(App));
+export default inject(CategoryStore.STORE_NAME)(observer(App));
