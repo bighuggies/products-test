@@ -5,7 +5,10 @@ import { ICategory } from '../models/Category';
 export class CategoryStore {
   public static STORE_NAME = 'categoryStore';
 
-  constructor(public categories: ICategory[] = []) {}
+  constructor(
+    public categories: ICategory[] = [],
+    public currentCategoryId?: string
+  ) {}
 
   public fetchCategories = async () => {
     const response = await fetch(
@@ -25,12 +28,15 @@ export class CategoryStore {
     return this.categories.filter(c => !c.hidden);
   }
 
-  public getCategory = (categoryId: string): ICategory | undefined =>
-    this.categories.find(c => c.id === categoryId);
+  public get currentCategory() {
+    return this.categories.find(c => c.id === this.currentCategoryId);
+  }
 }
 
 decorate(CategoryStore, {
   activeCategories: computed,
   categories: observable,
+  currentCategory: computed,
+  currentCategoryId: observable,
   setCategories: action
 });

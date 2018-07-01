@@ -1,11 +1,16 @@
-import { action, decorate, observable } from 'mobx';
+import { action, computed, decorate, observable } from 'mobx';
 
 import { IProduct } from '../models/Product';
+
+import { CategoryStore } from './CategoryStore';
 
 export class ProductStore {
   public static STORE_NAME = 'productStore';
 
-  constructor(public products: IProduct[] = []) {}
+  constructor(
+    public categoryStore: CategoryStore,
+    public products: IProduct[] = []
+  ) {}
 
   public fetchProducts = async () => {
     const response = await fetch(
@@ -19,9 +24,18 @@ export class ProductStore {
   public setProducts = (products: IProduct[]) => {
     this.products = products;
   };
+
+  public get categoryProducts(): IProduct[] {
+    return this.categoryStore.currentCategoryId && this.products
+      ? this.products.filter(p =>
+          p.categories.some(c => c.id === this.categoryStore.currentCategoryId)
+        )
+      : [];
+  }
 }
 
 decorate(ProductStore, {
+  categoryProducts: computed,
   products: observable,
   setProducts: action
 });
