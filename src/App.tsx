@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import './App.css';
+import { ICategory } from './models/Category';
 
 class App extends React.Component {
-  public state: { categories: any[] } = { categories: [] };
+  public state: { categories: ICategory[] } = { categories: [] };
 
   public async componentDidMount() {
     const response = await fetch(
