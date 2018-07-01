@@ -1,19 +1,25 @@
 import * as React from 'react';
+
 import './App.css';
 
-import logo from './logo.svg';
-
 class App extends React.Component {
+  public state: { categories: any[] } = { categories: [] };
+
+  public async componentDidMount() {
+    const response = await fetch(
+      'https://api.gousto.co.uk/products/v2.0/categories'
+    );
+    const data = await response.json();
+
+    this.setState({ categories: data.data });
+  }
+
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <ul>
+          {this.state.categories.map(c => <li key={c.id}> {c.title} </li>)}
+        </ul>
       </div>
     );
   }
