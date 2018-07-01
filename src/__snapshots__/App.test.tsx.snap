@@ -2,8 +2,13 @@
 
 exports[`renders without crashing 1`] = `
 "<App>
-  <div className=\\"App\\">
-    <ul />
-  </div>
+  <BrowserRouter>
+    <Router history={{...}}>
+      <div>
+        <ul />
+        <Route path=\\"/:categoryId\\" component={[Function: Category]} />
+      </div>
+    </Router>
+  </BrowserRouter>
 </App>"
 `;

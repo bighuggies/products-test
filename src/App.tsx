@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 import './App.css';
+import Category from './components/Category';
 import { ICategory } from './models/Category';
 
 class App extends React.Component {
@@ -17,11 +19,20 @@ class App extends React.Component {
 
   public render() {
     return (
-      <div className="App">
-        <ul>
-          {this.state.categories.map(c => <li key={c.id}> {c.title} </li>)}
-        </ul>
-      </div>
+      <Router>
+        <div>
+          <ul>
+            {this.state.categories.map(c => (
+              <li key={c.id}>
+                {' '}
+                <Link to={`/${c.id}`}>{c.title}</Link>{' '}
+              </li>
+            ))}
+          </ul>
+
+          <Route path="/:categoryId" component={Category} />
+        </div>
+      </Router>
     );
   }
 }
