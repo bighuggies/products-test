@@ -5,6 +5,8 @@ import { RouteComponentProps } from 'react-router';
 import { CategoryStore } from '../stores/CategoryStore';
 import { ProductStore } from '../stores/ProductStore';
 
+import Product from './Product';
+
 interface IRouteParams {
   categoryId: string;
 }
@@ -27,7 +29,9 @@ class Category extends React.Component<
     return (
       <ul>
         {this.props.productStore.categoryProducts.map(p => (
-          <li key={p.id}> {p.title} </li>
+          <li key={p.id}>
+            <Product product={p} />
+          </li>
         ))}
       </ul>
     );
