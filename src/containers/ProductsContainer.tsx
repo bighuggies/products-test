@@ -3,7 +3,6 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 import Products from '../components/Products';
-import { CategoryStore } from '../stores/CategoryStore';
 import { ProductStore } from '../stores/ProductStore';
 
 interface IRouteParams {
@@ -12,7 +11,6 @@ interface IRouteParams {
 
 class ProductsContainer extends React.Component<
   RouteComponentProps<IRouteParams> & {
-    categoryStore: CategoryStore;
     productStore: ProductStore;
   }
 > {
@@ -29,7 +27,7 @@ class ProductsContainer extends React.Component<
   }
 
   public selectCategory() {
-    this.props.categoryStore.selectCategory(this.props.match.params.categoryId);
+    this.props.productStore.selectCategory(this.props.match.params.categoryId);
   }
 
   public updateFilter = (filter: string) => {
@@ -47,6 +45,4 @@ class ProductsContainer extends React.Component<
   }
 }
 
-export default inject(CategoryStore.STORE_NAME, ProductStore.STORE_NAME)(
-  observer(ProductsContainer)
-);
+export default inject(ProductStore.STORE_NAME)(observer(ProductsContainer));

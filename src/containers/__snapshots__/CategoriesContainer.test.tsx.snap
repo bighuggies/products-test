@@ -7,19 +7,17 @@ exports[`renders without crashing 1`] = `
       <BrowserRouter>
         <Router history={{...}}>
           <div>
-            <inject-withRouter(CategoryMenu)-with-categoryStore>
-              <withRouter(CategoryMenu) categoryStore={{...}}>
-                <Route>
-                  <CategoryMenu categoryStore={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
-                    <nav aria-label=\\"Categories\\">
-                      <styled.ul>
-                        <ul className=\\"sc-bdVaJa hCdHre\\" />
-                      </styled.ul>
-                    </nav>
-                  </CategoryMenu>
-                </Route>
-              </withRouter(CategoryMenu)>
-            </inject-withRouter(CategoryMenu)-with-categoryStore>
+            <withRouter(CategoryMenu) categories={{...}}>
+              <Route>
+                <CategoryMenu categories={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
+                  <nav aria-label=\\"Categories\\">
+                    <styled.ul>
+                      <ul className=\\"sc-bdVaJa hCdHre\\" />
+                    </styled.ul>
+                  </nav>
+                </CategoryMenu>
+              </Route>
+            </withRouter(CategoryMenu)>
             <Route path=\\"/:categoryId\\" component={[Function: Injector]} />
           </div>
         </Router>

@@ -24,7 +24,9 @@ class CategoriesContainer extends React.Component<{
       this.props.categoryStore && (
         <Router>
           <div>
-            <CategoryMenu />
+            <CategoryMenu
+              categories={this.props.categoryStore.activeCategories}
+            />
 
             <Route path="/:categoryId" component={ProductsContainer} />
           </div>

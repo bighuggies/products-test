@@ -1,9 +1,8 @@
-import { inject, observer } from 'mobx-react';
 import * as React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { CategoryStore } from '../stores/CategoryStore';
+import { ICategory } from '../models/Category';
 
 const StyledMenu = styled.ul`
   display: flex;
@@ -28,25 +27,26 @@ const StyledMenuLink = styled(NavLink)`
   }
 `;
 
-class CategoryMenu extends React.Component<{ categoryStore?: CategoryStore }> {
+interface IProps {
+  categories: ICategory[];
+}
+
+class CategoryMenu extends React.Component<IProps & RouteComponentProps<any>> {
   public render() {
     return (
       <nav aria-label="Categories">
         <StyledMenu>
-          {this.props.categoryStore &&
-            this.props.categoryStore.activeCategories.map(c => (
-              <li key={c.id}>
-                <StyledMenuLink activeClassName="is-active" to={`/${c.id}`}>
-                  {c.title}
-                </StyledMenuLink>
-              </li>
-            ))}
+          {this.props.categories.map(c => (
+            <li key={c.id}>
+              <StyledMenuLink activeClassName="is-active" to={`/${c.id}`}>
+                {c.title}
+              </StyledMenuLink>
+            </li>
+          ))}
         </StyledMenu>
       </nav>
     );
   }
 }
 
-export default inject(CategoryStore.STORE_NAME)(
-  withRouter(observer(CategoryMenu) as any)
-);
+export default withRouter(CategoryMenu);

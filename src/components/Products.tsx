@@ -1,4 +1,3 @@
-import { observer } from 'mobx-react';
 import * as React from 'react';
 
 import { IProduct } from '../models/Product';
@@ -37,4 +36,4 @@ class Products extends React.Component<IProps> {
   }
 }
 
-export default observer(Products);
+export default Products;

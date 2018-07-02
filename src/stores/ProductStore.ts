@@ -22,9 +22,10 @@ export class ProductStore {
     this.setProducts(data.data);
   };
 
-  public setProducts = (products: IProduct[]) => {
-    this.products = products;
-  };
+  public selectCategory = (categoryId: string) =>
+    this.categoryStore.selectCategory(categoryId);
+
+  public setProducts = (products: IProduct[]) => (this.products = products);
 
   public get categoryProducts(): IProduct[] {
     return this.categoryStore.currentCategoryId && this.products
