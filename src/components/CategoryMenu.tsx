@@ -4,15 +4,15 @@ import styled from 'styled-components';
 
 import { ICategory } from '../api/Category';
 
-const StyledMenu = styled.ul`
+import { UnList } from './UnList';
+
+const StyledMenu = styled(UnList)`
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 -0.75rem 1.5rem -0.75rem;
 
-  > li + li {
-    margin-left: 1.5rem;
+  > li {
+    margin: 0 0.75rem;
   }
 `;
 

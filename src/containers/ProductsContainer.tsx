@@ -26,9 +26,13 @@ class ProductsContainer extends React.Component<
     this.selectCategory();
   }
 
-  public selectCategory() {
+  public resetFilter = () => {
+    this.updateFilter('');
+  };
+
+  public selectCategory = () => {
     this.props.productStore.selectCategory(this.props.match.params.categoryId);
-  }
+  };
 
   public updateFilter = (filter: string) => {
     this.props.productStore.filter = filter;

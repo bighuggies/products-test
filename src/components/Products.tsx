@@ -2,7 +2,10 @@ import * as React from 'react';
 
 import { IProduct } from '../api/Product';
 
+import { Input } from './Input';
 import Product from './Product';
+import { UnList } from './UnList';
+import { VSpace } from './VSpace';
 
 interface IProps {
   products: IProduct[];
@@ -17,21 +20,28 @@ class Products extends React.PureComponent<IProps> {
 
   public render() {
     return (
-      <div>
-        <input
+      <VSpace>
+        <Input
           type="search"
           value={this.props.filter}
           onInput={this.updateFilter}
         />
 
-        <ul>
-          {this.props.products.map(p => (
-            <li key={p.id}>
-              <Product product={p} />
-            </li>
-          ))}
-        </ul>
-      </div>
+        {this.props.products.length > 0 ? (
+          <UnList>
+            {this.props.products.map(p => (
+              <li key={p.id}>
+                <Product product={p} />
+              </li>
+            ))}
+          </UnList>
+        ) : (
+          <p>
+            No products in this category{this.props.filter &&
+              ` matching "${this.props.filter}"`}
+          </p>
+        )}
+      </VSpace>
     );
   }
 }

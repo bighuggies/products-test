@@ -2,6 +2,9 @@ import * as React from 'react';
 
 import { IProduct } from '../api/Product';
 
+import { Italics } from './Italics';
+import { LinkButton } from './LinkButton';
+
 interface IProps {
   product: IProduct;
 }
@@ -22,13 +25,19 @@ class Product extends React.PureComponent<IProps, IState> {
   public render() {
     return (
       <div>
-        <button onClick={this.toggleDescription}>
-          {' '}
-          {this.props.product.title}{' '}
-        </button>
+        <LinkButton
+          className={this.state.isDescriptionShowing ? 'is-active' : ''}
+          onClick={this.toggleDescription}
+          aria-expanded={this.state.isDescriptionShowing}
+          aria-controls={`${this.props.product.id}-description`}
+        >
+          {this.props.product.title}
+        </LinkButton>
 
         {this.state.isDescriptionShowing && (
-          <p> {this.props.product.description} </p>
+          <Italics id={`${this.props.product.id}-description`}>
+            {this.props.product.description}
+          </Italics>
         )}
       </div>
     );
