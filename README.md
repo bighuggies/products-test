@@ -45,3 +45,7 @@ Store for products. Manages filtering products based on the current category and
 ## Tests
 
 Snapshot tests are largely used for UI logic. The stores have more extensive tests as this is where the business logic is.
+
+## Compatibility
+
+Tested mainly Windows 10 + Chrome due to CORS issues. Libraries used should be compatible with Latest 2 + IE11.
