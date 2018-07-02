@@ -9,7 +9,8 @@ export class ProductStore {
 
   constructor(
     public categoryStore: CategoryStore,
-    public products: IProduct[] = []
+    public products: IProduct[] = [],
+    public filter: string = ''
   ) {}
 
   public fetchProducts = async () => {
@@ -32,10 +33,21 @@ export class ProductStore {
         )
       : [];
   }
+
+  public get filteredCategoryProducts(): IProduct[] {
+    return this.categoryProducts.filter(
+      c =>
+        !this.filter ||
+        c.title.toLowerCase().includes(this.filter.toLowerCase()) ||
+        c.description.toLowerCase().includes(this.filter.toLowerCase())
+    );
+  }
 }
 
 decorate(ProductStore, {
   categoryProducts: computed,
+  filter: observable,
+  filteredCategoryProducts: computed,
   products: observable,
   setProducts: action
 });

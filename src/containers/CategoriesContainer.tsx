@@ -2,12 +2,14 @@ import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import './App.css';
-import Category from './components/Category';
-import CategoryMenu from './components/CategoryMenu';
-import { CategoryStore } from './stores/CategoryStore';
+import CategoryMenu from '../components/CategoryMenu';
+import { CategoryStore } from '../stores/CategoryStore';
 
-class App extends React.Component<{ categoryStore?: CategoryStore }> {
+import ProductsContainer from './ProductsContainer';
+
+class CategoriesContainer extends React.Component<{
+  categoryStore?: CategoryStore;
+}> {
   public componentDidMount() {
     if (
       this.props.categoryStore &&
@@ -24,7 +26,7 @@ class App extends React.Component<{ categoryStore?: CategoryStore }> {
           <div>
             <CategoryMenu />
 
-            <Route path="/:categoryId" component={Category} />
+            <Route path="/:categoryId" component={ProductsContainer} />
           </div>
         </Router>
       )
@@ -32,4 +34,4 @@ class App extends React.Component<{ categoryStore?: CategoryStore }> {
   }
 }
 
-export default inject(CategoryStore.STORE_NAME)(observer(App));
+export default inject(CategoryStore.STORE_NAME)(observer(CategoriesContainer));

@@ -2,8 +2,8 @@
 
 exports[`renders without crashing 1`] = `
 "<Provider categoryStore={{...}} productStore={{...}}>
-  <inject-App-with-categoryStore>
-    <App categoryStore={{...}}>
+  <inject-CategoriesContainer-with-categoryStore>
+    <CategoriesContainer categoryStore={{...}}>
       <BrowserRouter>
         <Router history={{...}}>
           <div>
@@ -11,9 +11,11 @@ exports[`renders without crashing 1`] = `
               <withRouter(CategoryMenu) categoryStore={{...}}>
                 <Route>
                   <CategoryMenu categoryStore={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
-                    <styled.ul>
-                      <ul className=\\"sc-bdVaJa hCdHre\\" />
-                    </styled.ul>
+                    <nav aria-label=\\"Categories\\">
+                      <styled.ul>
+                        <ul className=\\"sc-bdVaJa hCdHre\\" />
+                      </styled.ul>
+                    </nav>
                   </CategoryMenu>
                 </Route>
               </withRouter(CategoryMenu)>
@@ -22,7 +24,7 @@ exports[`renders without crashing 1`] = `
           </div>
         </Router>
       </BrowserRouter>
-    </App>
-  </inject-App-with-categoryStore>
+    </CategoriesContainer>
+  </inject-CategoriesContainer-with-categoryStore>
 </Provider>"
 `;

@@ -3,14 +3,14 @@ import * as ReactDOM from 'react-dom';
 
 import { Provider } from 'mobx-react';
 
-import App from './App';
+import CategoriesContainer from './containers/CategoriesContainer';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { RootStore } from './stores/RootStore';
 
 ReactDOM.render(
   <Provider {...new RootStore()}>
-    <App />
+    <CategoriesContainer />
   </Provider>,
   document.getElementById('root') as HTMLElement
 );

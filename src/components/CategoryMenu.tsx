@@ -31,16 +31,18 @@ const StyledMenuLink = styled(NavLink)`
 class CategoryMenu extends React.Component<{ categoryStore?: CategoryStore }> {
   public render() {
     return (
-      <StyledMenu>
-        {this.props.categoryStore &&
-          this.props.categoryStore.activeCategories.map(c => (
-            <li key={c.id}>
-              <StyledMenuLink activeClassName="is-active" to={`/${c.id}`}>
-                {c.title}
-              </StyledMenuLink>
-            </li>
-          ))}
-      </StyledMenu>
+      <nav aria-label="Categories">
+        <StyledMenu>
+          {this.props.categoryStore &&
+            this.props.categoryStore.activeCategories.map(c => (
+              <li key={c.id}>
+                <StyledMenuLink activeClassName="is-active" to={`/${c.id}`}>
+                  {c.title}
+                </StyledMenuLink>
+              </li>
+            ))}
+        </StyledMenu>
+      </nav>
     );
   }
 }
