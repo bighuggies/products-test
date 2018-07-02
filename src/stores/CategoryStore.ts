@@ -1,7 +1,7 @@
 import { action, computed, decorate, observable } from 'mobx';
 
-import { ICategory } from '../api/Category';
 import { GoustoClient } from '../api/GoustoClient';
+import { ICategory } from '../api/models/Category';
 
 export class CategoryStore {
   public static STORE_NAME = 'categoryStore';

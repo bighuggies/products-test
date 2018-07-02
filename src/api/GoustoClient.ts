@@ -1,6 +1,6 @@
-import { IProduct } from './Product';
+import { IProduct } from './models/Product';
 
-import { ICategory } from './Category';
+import { ICategory } from './models/Category';
 
 export class GoustoClient {
   public async fetchCategories(): Promise<ICategory[]> {

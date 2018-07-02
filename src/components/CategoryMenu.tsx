@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ICategory } from '../api/Category';
+import { ICategory } from '../api/models/Category';
 
 import { UnList } from './UnList';
 

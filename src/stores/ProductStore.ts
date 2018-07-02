@@ -1,7 +1,7 @@
 import { action, computed, decorate, observable } from 'mobx';
 
 import { GoustoClient } from '../api/GoustoClient';
-import { IProduct } from '../api/Product';
+import { IProduct } from '../api/models/Product';
 
 import { CategoryStore } from './CategoryStore';
 

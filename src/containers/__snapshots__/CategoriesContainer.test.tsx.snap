@@ -11,9 +11,11 @@ exports[`renders without crashing 1`] = `
               <Route>
                 <CategoryMenu categories={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
                   <nav aria-label=\\"Categories\\">
-                    <styled.ul>
-                      <ul className=\\"sc-bdVaJa hCdHre\\" />
-                    </styled.ul>
+                    <Styled(styled.ul)>
+                      <styled.ul className=\\"sc-bwzfXH gtuzxh\\" innerRef={[undefined]}>
+                        <ul className=\\"sc-bwzfXH gtuzxh sc-bdVaJa hTzUzq\\" />
+                      </styled.ul>
+                    </Styled(styled.ul)>
                   </nav>
                 </CategoryMenu>
               </Route>
