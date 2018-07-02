@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ICategory } from '../models/Category';
+import { ICategory } from '../api/Category';
 
 const StyledMenu = styled.ul`
   display: flex;

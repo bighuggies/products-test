@@ -1,23 +1,21 @@
 import { action, computed, decorate, observable } from 'mobx';
 
-import { ICategory } from '../models/Category';
+import { ICategory } from '../api/Category';
+import { GoustoClient } from '../api/GoustoClient';
 
 export class CategoryStore {
   public static STORE_NAME = 'categoryStore';
 
   constructor(
+    public goustoClient: GoustoClient = new GoustoClient(),
     public categories: ICategory[] = [],
     public currentCategoryId?: string
   ) {}
 
   public fetchCategories = async () => {
-    const response = await fetch(
-      'https://api.gousto.co.uk/products/v2.0/categories'
-    );
+    const categories = await this.goustoClient.fetchCategories();
 
-    const data = await response.json();
-
-    this.setCategories(data.data);
+    this.setCategories(categories);
   };
 
   public setCategories = (categories: ICategory[]) => {

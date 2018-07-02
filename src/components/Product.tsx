@@ -1,11 +1,16 @@
 import * as React from 'react';
 
-import { IProduct } from '../models/Product';
+import { IProduct } from '../api/Product';
 
-class Product extends React.PureComponent<
-  { product: IProduct },
-  { isDescriptionShowing: boolean }
-> {
+interface IProps {
+  product: IProduct;
+}
+
+interface IState {
+  isDescriptionShowing: boolean;
+}
+
+class Product extends React.PureComponent<IProps, IState> {
   public state = { isDescriptionShowing: false };
 
   public toggleDescription = () => {

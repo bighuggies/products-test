@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { IProduct } from '../models/Product';
+import { IProduct } from '../api/Product';
 
 import Product from './Product';
 
