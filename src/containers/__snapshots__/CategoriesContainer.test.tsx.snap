@@ -6,22 +6,24 @@ exports[`renders without crashing 1`] = `
     <CategoriesContainer categoryStore={{...}}>
       <BrowserRouter>
         <Router history={{...}}>
-          <div>
-            <withRouter(CategoryMenu) categories={{...}}>
-              <Route>
-                <CategoryMenu categories={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
-                  <nav aria-label=\\"Categories\\">
-                    <Styled(styled.ul)>
-                      <styled.ul className=\\"sc-bwzfXH gtuzxh\\" innerRef={[undefined]}>
-                        <ul className=\\"sc-bwzfXH gtuzxh sc-bdVaJa hTzUzq\\" />
-                      </styled.ul>
-                    </Styled(styled.ul)>
-                  </nav>
-                </CategoryMenu>
-              </Route>
-            </withRouter(CategoryMenu)>
-            <Route path=\\"/:categoryId\\" component={[Function: Injector]} />
-          </div>
+          <styled.div>
+            <div className=\\"sc-bxivhb hXZJdh\\">
+              <withRouter(CategoryMenu) categories={{...}}>
+                <Route>
+                  <CategoryMenu categories={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
+                    <nav aria-label=\\"Categories\\">
+                      <Styled(styled.ul)>
+                        <styled.ul className=\\"sc-bwzfXH gtuzxh\\" innerRef={[undefined]}>
+                          <ul className=\\"sc-bwzfXH gtuzxh sc-bdVaJa hTzUzq\\" />
+                        </styled.ul>
+                      </Styled(styled.ul)>
+                    </nav>
+                  </CategoryMenu>
+                </Route>
+              </withRouter(CategoryMenu)>
+              <Route path=\\"/:categoryId\\" component={[Function: Injector]} />
+            </div>
+          </styled.div>
         </Router>
       </BrowserRouter>
     </CategoriesContainer>

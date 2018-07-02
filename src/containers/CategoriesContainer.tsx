@@ -3,6 +3,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import CategoryMenu from '../components/CategoryMenu';
+import { PageWrapper } from '../components/PageWrapper';
 import { CategoryStore } from '../stores/CategoryStore';
 
 import ProductsContainer from './ProductsContainer';
@@ -23,13 +24,13 @@ class CategoriesContainer extends React.Component<{
     return (
       this.props.categoryStore && (
         <Router>
-          <div>
+          <PageWrapper>
             <CategoryMenu
               categories={this.props.categoryStore.activeCategories}
             />
 
             <Route path="/:categoryId" component={ProductsContainer} />
-          </div>
+          </PageWrapper>
         </Router>
       )
     );

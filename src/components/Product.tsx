@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { IProduct } from '../api/models/Product';
 
-import { Italics } from './Italics';
 import { LinkButton } from './LinkButton';
+import ProductDescription from './ProductDescription';
 
 interface IProps {
   product: IProduct;
@@ -35,9 +35,10 @@ class Product extends React.PureComponent<IProps, IState> {
         </LinkButton>
 
         {this.state.isDescriptionShowing && (
-          <Italics id={`${this.props.product.id}-description`}>
-            {this.props.product.description}
-          </Italics>
+          <ProductDescription
+            id={`${this.props.product.id}-description`}
+            description={this.props.product.description}
+          />
         )}
       </div>
     );
