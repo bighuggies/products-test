@@ -10,7 +10,7 @@ interface IProps {
   onFilter: (filter: string) => void;
 }
 
-class Products extends React.Component<IProps> {
+class Products extends React.PureComponent<IProps> {
   public updateFilter = (e: React.FormEvent<HTMLInputElement>) => {
     this.props.onFilter(e.currentTarget.value);
   };

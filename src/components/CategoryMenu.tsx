@@ -31,7 +31,9 @@ interface IProps {
   categories: ICategory[];
 }
 
-class CategoryMenu extends React.Component<IProps & RouteComponentProps<any>> {
+class CategoryMenu extends React.PureComponent<
+  IProps & RouteComponentProps<any>
+> {
   public render() {
     return (
       <nav aria-label="Categories">

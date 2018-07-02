@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { IProduct } from '../models/Product';
 
-class Product extends React.Component<
+class Product extends React.PureComponent<
   { product: IProduct },
   { isDescriptionShowing: boolean }
 > {
