@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly without products 1`] = `
+"<Products products={{...}} filter=\\"\\" onFilter={[Function: noop]}>
+  <styled.div>
+    <div className=\\"sc-ifAKCX hoKjwN\\">
+      <styled.input type=\\"search\\" value=\\"\\" onInput={[Function]}>
+        <input className=\\"sc-bdVaJa glpHrW\\" type=\\"search\\" value=\\"\\" onInput={[Function]} />
+      </styled.input>
+      <p>
+        No products in this category
+      </p>
+    </div>
+  </styled.div>
+</Products>"
+`;
+
+exports[`renders without crashing 1`] = `
+"<Products products={{...}} filter=\\"\\" onFilter={[Function: noop]}>
+  <styled.div>
+    <div className=\\"sc-ifAKCX hoKjwN\\">
+      <styled.input type=\\"search\\" value=\\"\\" onInput={[Function]}>
+        <input className=\\"sc-bdVaJa glpHrW\\" type=\\"search\\" value=\\"\\" onInput={[Function]} />
+      </styled.input>
+      <styled.ul>
+        <ul className=\\"sc-bxivhb ktajjB\\">
+          <li>
+            <Product product={{...}}>
+              <div>
+                <styled.button className=\\"\\" onClick={[Function]} aria-expanded={false} aria-controls=\\"1-description\\">
+                  <button className=\\"sc-bwzfXH fJXyvc\\" onClick={[Function]} aria-expanded={false} aria-controls=\\"1-description\\">
+                    1
+                  </button>
+                </styled.button>
+              </div>
+            </Product>
+          </li>
+        </ul>
+      </styled.ul>
+    </div>
+  </styled.div>
+</Products>"
+`;

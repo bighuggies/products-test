@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+"<Product product={{...}}>
+  <div>
+    <styled.button className=\\"\\" onClick={[Function]} aria-expanded={false} aria-controls=\\"1-description\\">
+      <button className=\\"sc-bdVaJa fOgcfl\\" onClick={[Function]} aria-expanded={false} aria-controls=\\"1-description\\">
+        p1
+      </button>
+    </styled.button>
+  </div>
+</Product>"
+`;
+
+exports[`sets aria-expanded false when not visible 1`] = `
+"<Product product={{...}}>
+  <div>
+    <styled.button className=\\"\\" onClick={[Function]} aria-expanded={false} aria-controls=\\"1-description\\">
+      <button className=\\"sc-bdVaJa fOgcfl\\" onClick={[Function]} aria-expanded={false} aria-controls=\\"1-description\\">
+        p1
+      </button>
+    </styled.button>
+  </div>
+</Product>"
+`;
+
+exports[`sets aria-expanded true when visible 1`] = `
+"<Product product={{...}}>
+  <div>
+    <styled.button className=\\"is-active\\" onClick={[Function]} aria-expanded={true} aria-controls=\\"1-description\\">
+      <button className=\\"is-active sc-bdVaJa fOgcfl\\" onClick={[Function]} aria-expanded={true} aria-controls=\\"1-description\\">
+        p1
+      </button>
+    </styled.button>
+    <ProductDescription id=\\"1-description\\" description=\\"p1\\">
+      <styled.p id=\\"1-description\\">
+        <p className=\\"sc-bwzfXH Qoery\\" id=\\"1-description\\">
+          p1
+        </p>
+      </styled.p>
+    </ProductDescription>
+  </div>
+</Product>"
+`;

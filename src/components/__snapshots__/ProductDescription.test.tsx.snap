@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+"<ProductDescription id=\\"id1\\" description=\\"hello world\\">
+  <styled.p id=\\"id1\\">
+    <p className=\\"sc-bdVaJa hjusWQ\\" id=\\"id1\\">
+      hello world
+    </p>
+  </styled.p>
+</ProductDescription>"
+`;

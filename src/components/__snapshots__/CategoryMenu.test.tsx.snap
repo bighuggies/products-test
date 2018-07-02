@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+"<MemoryRouter keyLength={0}>
+  <Router history={{...}}>
+    <withRouter(CategoryMenu) categories={{...}}>
+      <Route>
+        <CategoryMenu categories={{...}} match={{...}} location={{...}} history={{...}} staticContext={[undefined]}>
+          <nav aria-label=\\"Categories\\">
+            <Styled(styled.ul)>
+              <styled.ul className=\\"sc-bwzfXH gtuzxh\\" innerRef={[undefined]}>
+                <ul className=\\"sc-bwzfXH gtuzxh sc-bdVaJa hTzUzq\\">
+                  <li>
+                    <Styled(NavLink) activeClassName=\\"is-active\\" to=\\"/1\\">
+                      <NavLink className=\\"sc-htpNat jgryAF\\" activeClassName=\\"is-active\\" to=\\"/1\\" aria-current=\\"page\\">
+                        <Route path=\\"\\\\\\\\/1\\" exact={[undefined]} strict={[undefined]} location={[undefined]}>
+                          <Link to=\\"/1\\" className=\\"sc-htpNat jgryAF\\" style={[undefined]} aria-current={{...}} replace={false}>
+                            <a className=\\"sc-htpNat jgryAF\\" style={[undefined]} aria-current={{...}} onClick={[Function]} href=\\"/1\\">
+                              1
+                            </a>
+                          </Link>
+                        </Route>
+                      </NavLink>
+                    </Styled(NavLink)>
+                  </li>
+                </ul>
+              </styled.ul>
+            </Styled(styled.ul)>
+          </nav>
+        </CategoryMenu>
+      </Route>
+    </withRouter(CategoryMenu)>
+  </Router>
+</MemoryRouter>"
+`;
